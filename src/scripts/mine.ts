@@ -13,6 +13,7 @@ import { readFile } from "fs/promises";
 
 interface IMineOptions {
   account: string;
+  gas: number;
 }
 
 let unique = 0;
@@ -46,7 +47,9 @@ This mining user configuration was not found!
   printer.trace(`network is ${network.name} (chainID: ${network.chainId})`);
 
   const currentGasPrice = await provider.getGasPrice();
-  const targetGasFee = currentGasPrice.div(100).mul(GAS_PREMIUM);
+  //const targetGasFee = currentGasPrice.div(100).mul(GAS_PREMIUM);
+  const gasMultiple = parseInt(String(options.gas * 100))
+  const targetGasFee = currentGasPrice.div(100).mul(gasMultiple);
 
   printer.trace(`Current gas price usage ${bnUtils.fromWei(targetGasFee.toString(), 9)} gwei`);
   const nonce = await miner.getTransactionCount();
