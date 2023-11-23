@@ -17,6 +17,7 @@ program
   .command("mine <tick>")
   .description("Perform Ethernet IERC POW Mining")
   .option("-a, --account <account>", "Provide your mining address")
+  .option("-g, --gas <gas>", "Provide your current gas multiple", "1.1")
   .action((tick, options) => {
     runMine(tick, options);
   });
