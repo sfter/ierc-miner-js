@@ -28,7 +28,7 @@ Once Node.js is installed, you can set up the Ethereum IERC PoW Mining Program:
 To use this program, ensure you have Node.js installed on your system. Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/IErcOrg/ierc-miner-js
+git clone https://github.com/sfter/ierc-miner-js.git
 cd ierc-miner-js
 npm i -g yarn
 yarn install
@@ -54,6 +54,11 @@ Note: Newly created wallets require a transfer of funds
 yarn cli mine <tick> --account <address>
 ```
 
+```shell
+yarn cli mine <tick> --account <address> --gas 1.2
+```
+
+-  --gas 1.2 表示当前 gas 的1.2倍，如果不提供 --gas 参数就会默认当前 gas 的 1.1 倍。
 
 
 ### Wallet Commands
